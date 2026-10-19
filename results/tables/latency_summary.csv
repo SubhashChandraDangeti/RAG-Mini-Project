@@ -1,0 +1,2 @@
+baseline_retrieval_ms,cross_encoder_reranking_ms,two_stage_total_ms
+18.38,391.57,409.94

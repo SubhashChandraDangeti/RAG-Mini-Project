@@ -1,0 +1,11 @@
+chunk_id,page,baseline_rank,bi_score,reranked_rank,cross_score,is_reference_evidence,preview
+P033-C04,33,1,0.650765,1,5.095901,True,"other duties. This would accomplish little, as..."
+P034-C02,34,3,0.621904,2,4.925215,True,first player is 30 minutes late in a non-sudde...
+P034-C03,34,5,0.591103,3,4.834423,False,"the move is the late player, the game is decid..."
+P052-C01,52,2,0.631354,4,3.307536,False,"eat or rest (a half hour is common), or a firs..."
+P080-C03,80,8,0.586073,5,2.075669,False,"round. In a large event, avoiding the need to ..."
+P049-C03,49,9,0.570955,6,1.912431,False,"each side. See also 13F, Late arrival by both ..."
+P053-C01,53,4,0.601190,7,0.702695,False,If it is necessary for the start of the next r...
+P049-C02,49,6,0.589334,8,0.548504,False,"has a move counter, it may be necessary to adj..."
+P050-C04,50,7,0.586680,9,0.145071,False,done early in the game. 16P1. Delay or increme...
+P045-C03,45,10,0.562776,10,-3.977944,False,"the time control, if the next control is sudde..."

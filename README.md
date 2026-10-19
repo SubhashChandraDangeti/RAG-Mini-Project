@@ -12,7 +12,10 @@ Both pipelines use the same document, chunks, prompt template, generation settin
 ## Project files and results
 
 - [Executed notebook](rag_baseline_vs_reranking.ipynb): code, retrieved passages, generated answer comparisons, timings, and validation checks.
-- [Report](REPORT.md): experiment setup and recorded results.
+- [Report PDF](RAG_Report.pdf): architecture, failure-case analysis, latency, and scaling discussion.
+- [Report text](REPORT.md): editable Markdown version of the analysis.
+- [Results](results/): exported tables, graphs, and generated answer comparisons.
+- [Result exporter](export_results.py): regenerates result files from saved notebook outputs.
 - [Git command guide](GIT_GUIDE.md): commands used to upload the project and update it later.
 - [Dependencies](requirements.txt): packages needed to run the notebook.
 
@@ -24,6 +27,8 @@ The saved experiment uses `gemma-4-26b-a4b-it` through the Google GenAI client. 
 | Q6: Clock replacement | 4 | 1 | Supplies evidence for replacement exceptions and clock configuration. |
 
 Across eight queries, the mean of the measured query medians was **18.38 ms** for baseline retrieval and **409.94 ms** for retrieval plus re-ranking. Timings exclude model loading, document indexing, and answer generation. These deliberately selected stress tests illustrate retrieval failures rather than estimate accuracy across all chess questions.
+
+![Baseline retrieval and additional re-ranking latency](results/graphs/latency_breakdown.png)
 
 ## Document corpus
 
@@ -54,6 +59,29 @@ This is the 139-page free-download edition, revised 21 August 2020, containing C
    ```
 
 The embedding and Cross-Encoder models are downloaded from Hugging Face on their first use. Later runs use the local model cache.
+
+## Export saved results
+
+Save the executed notebook, then run:
+
+```powershell
+python export_results.py
+```
+
+This reads the notebook's saved outputs without rerunning retrieval or making API calls.
+
+| Output | Contents |
+| --- | --- |
+| `results/tables/rank_results.csv` | Reference-evidence rankings for all eight queries and initial evaluation timings. |
+| `results/tables/rank_shifts.csv` | The two qualifying evidence promotions. |
+| `results/tables/latency.csv`, `latency_summary.csv` | Warmed-up component medians and their mean across queries. |
+| `results/tables/q1_candidates.csv` through `q8_candidates.csv` | Candidate IDs, scores, ranks, and passage previews. |
+| `results/tables/q3_context.csv`, `q6_context.csv` | The actual context chunk IDs for each answer pair. |
+| `results/graphs/` | High-resolution latency and rank-change charts, plus the original notebook plot. |
+| `results/answer_comparisons.md` | Saved Q3 and Q6 answer pairs. |
+| `results/manifest.json` | Source notebook checksum, result-file checksums, and measurement provenance. |
+
+Exports retain the precision stored in notebook display outputs. Candidate previews may be truncated. The latency profiler uses one warm-up and five timed repetitions per query; the two-stage total is the sum of component medians. These profiling results are separate from the initial evaluation timings in `rank_results.csv`.
 
 ## What the notebook verifies
 

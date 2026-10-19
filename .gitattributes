@@ -1,0 +1,3 @@
+# Preserve exact bytes for reproducible checksums across operating systems.
+rag_baseline_vs_reranking.ipynb -text
+results/** -text

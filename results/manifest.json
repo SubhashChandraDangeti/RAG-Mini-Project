@@ -1,0 +1,27 @@
+{
+  "source_notebook": "rag_baseline_vs_reranking.ipynb",
+  "source_sha256": "9c00fad556ac07b95f1f33c64cbbf906965e1e18b82fb803c2f65d2e3c9bc782",
+  "provenance": "Saved notebook HTML tables, Markdown answers, and embedded PNG; no rerun.",
+  "precision": "Tables and redrawn graphs use the precision serialized by Jupyter displays.",
+  "latency_protocol": "One warm-up, five repetitions; component medians; total=sum of medians.",
+  "files": {
+    "answer_comparisons.md": "455e98f63c6a1bd16c11f81a4190a040d80ac826f96aec36772cec44210141e8",
+    "graphs/latency_breakdown.png": "ad77c4d52762113762498a418cfab20716efc1893e55f6099681796708a42e4f",
+    "graphs/notebook_latency.png": "c5e030ed9654d522f387b45c8f24879a6e5a12191d34b2149ed652aec3f0fa8b",
+    "graphs/rank_shifts.png": "7e255114ea5da9acbbdaa8377543ce593d9b5832fd20a358889f2b6c6472ea0d",
+    "tables/latency.csv": "bc0eac9cee523417dbc66f6f71f7ce8cefe7f62c940d08ac4518d124c7cededf",
+    "tables/latency_summary.csv": "3ff1f0a7fe1dd96dedb60883821c9b7f66cb7cd5462f5e3ef50a83a4b2fc4ffb",
+    "tables/q1_candidates.csv": "ca233e4d36580dd05255bcf956a1e4d4993cf83b85a5a5dbddc2f3165307a7e5",
+    "tables/q2_candidates.csv": "89c70265cd979ca9e30fad1ea2394c5949cf522c210f9e4351ad521443e53cc6",
+    "tables/q3_candidates.csv": "f7cdcad94807d412f53d375595e6c626fd3e14b8387738a9aa7c5e64c6f081b3",
+    "tables/q3_context.csv": "d3f9f2837c28e1dd459242ef6b0e713b41f8b02f7700bb0250e289bffe6b725b",
+    "tables/q4_candidates.csv": "024f0e179444dc3c8ae86ff374c0d4f10855c1f17ee8217bc4783ab48a12f04f",
+    "tables/q5_candidates.csv": "f4cb85c2bb296fbcd4c7295f8f55c6faab1a4c83b85cb0afc378677fa41c98ff",
+    "tables/q6_candidates.csv": "14b18a08ef22c6fa98b5218827271faf93c54aad7f1afbbe026687b74609a285",
+    "tables/q6_context.csv": "923524336fc81cb72460a4ab1230ba6208f5c2c9655379e8579c73d24e2ce49d",
+    "tables/q7_candidates.csv": "536d3bfe851627a465736adeda1df3a1ba2b9fe76eb514a4aa9d7ef762ec565c",
+    "tables/q8_candidates.csv": "0ffe4ee3e4c8dc5cc377d5e5ac72509f6eee8dd95b65ee86fa78ae97d079ec87",
+    "tables/rank_results.csv": "7f3840792b752fc0eca7f3a7442c1afeabd3d262ad9fa95318f82c8d6aa71732",
+    "tables/rank_shifts.csv": "f11107809d7ca1c0eca8a4a87a54109fe66d3aff72df4d4e0eaa6a585173f617"
+  }
+}

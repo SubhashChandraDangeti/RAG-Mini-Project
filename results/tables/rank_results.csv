@@ -1,0 +1,9 @@
+test_id,failure_type,baseline_evidence_rank,reranked_evidence_rank,rank_change,baseline_ms,reranking_ms,two_stage_total_ms,qualifies
+Q1,Exception / variation,1.0,1.0,0.0,511.0236,1126.5605,1637.5841,False
+Q2,Negation / role constraint,NaN,NaN,NaN,24.8131,426.5867,451.3998,False
+Q3,Corner case / event ordering,10.0,1.0,9.0,19.8043,435.1975,455.0018,True
+Q4,Exception / director discretion,1.0,1.0,0.0,27.0508,426.6565,453.7073,False
+Q5,Keyword distractor / online-vs-OTB,1.0,1.0,0.0,23.1497,433.6537,456.8034,False
+Q6,Exception / equipment,4.0,1.0,3.0,26.4430,437.8418,464.2848,True
+Q7,Constraint / promotion,1.0,3.0,-2.0,25.9648,409.6574,435.6222,False
+Q8,Timing / draw offer,1.0,1.0,0.0,20.6496,375.2588,395.9084,False

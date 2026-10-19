@@ -18,4 +18,7 @@ RAG_LMA_Assignment_v1.pdf
 REPORT_TEMPLATE.md
 rag_executed.ipynb
 overleaf_report.zip
+overleaf_report/
+*.tex
+RAG_Assignment_Report (1).pdf
 tmp/
