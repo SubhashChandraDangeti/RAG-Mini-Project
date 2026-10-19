@@ -11,11 +11,11 @@ The implementation is in `rag_baseline_vs_reranking.ipynb`. It uses `US_Chess_Ru
 
 The saved experiment uses `gemma-4-26b-a4b-it` through the Google GenAI client. Q3 promotes its reference chunk from rank 10 to 1; Q6 promotes its reference chunk from rank 4 to 1.
 
-## Download the corpus
+## Document corpus
 
-Download the [US Chess official free-download rulebook, revised 21 August 2020](https://new.uschess.org/sites/default/files/media/documents/us-chess-rule-book-online-only-edition-chapters-1-2-10-11-9-1-20.pdf).
+The exact PDF used in the experiment is included as [US_Chess_RuleBook.pdf](US_Chess_RuleBook.pdf), so no separate download is needed after cloning this repository.
 
-Save it in the project folder as `US_Chess_RuleBook.pdf`. This is the 139-page free-download edition containing Chapters 1, 2, 10, and 11. The PDF remains copyright US Chess and is not redistributed in this repository. The experiment answers questions about this document edition.
+This is the 139-page free-download edition, revised 21 August 2020, containing Chapters 1, 2, 10, and 11. Copyright remains with the United States Chess Federation. [Official source](https://new.uschess.org/sites/default/files/media/documents/us-chess-rule-book-online-only-edition-chapters-1-2-10-11-9-1-20.pdf). The experiment answers questions about this document edition.
 
 ## Run the notebook
 
