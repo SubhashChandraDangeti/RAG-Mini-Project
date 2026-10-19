@@ -1,15 +1,29 @@
-# RAG Assignment: Baseline vs. Cross-Encoder Re-ranking
+# Chess Rulebook RAG: Baseline vs. Cross-Encoder Re-ranking
 
-The implementation is in `rag_baseline_vs_reranking.ipynb`. It uses `US_Chess_RuleBook.pdf` as the single document corpus and follows the assignment's fixed Top 10 / Top 3 design.
+This project compares dense retrieval with Cross-Encoder re-ranking for question answering over a US Chess rulebook. Both pipelines retrieve the same ten candidate passages and supply three passages to the same language model. The comparison examines how context selection affects answer completeness and retrieval latency.
+
+## Retrieval pipelines
+
+1. **Baseline:** embed the question, retrieve the Top 10 chunks by cosine similarity, and pass the first three to the language model.
+2. **Re-ranking:** score the same ten query-passage pairs with a Cross-Encoder, sort by relevance, and pass the new Top 3 to the same language model.
+
+Both pipelines use the same document, chunks, prompt template, generation settings, and final context size.
 
 ## Project files and results
 
 - [Executed notebook](rag_baseline_vs_reranking.ipynb): code, retrieved passages, generated answer comparisons, timings, and validation checks.
-- [Report draft](REPORT.md): measured results and prompts; the interpretation paragraphs and student details still need to be completed by the author.
+- [Report](REPORT.md): experiment setup and recorded results.
 - [Git command guide](GIT_GUIDE.md): commands used to upload the project and update it later.
 - [Dependencies](requirements.txt): packages needed to run the notebook.
 
 The saved experiment uses `gemma-4-26b-a4b-it` through the Google GenAI client. Q3 promotes its reference chunk from rank 10 to 1; Q6 promotes its reference chunk from rank 4 to 1.
+
+| Case | Baseline evidence rank | Re-ranked position | Observed answer change |
+| --- | ---: | ---: | --- |
+| Q3: Checkmate and expired clocks | 10 | 1 | Adds the missing both-flags-down condition. |
+| Q6: Clock replacement | 4 | 1 | Supplies evidence for replacement exceptions and clock configuration. |
+
+Across eight queries, the mean of the measured query medians was **18.38 ms** for baseline retrieval and **409.94 ms** for retrieval plus re-ranking. Timings exclude model loading, document indexing, and answer generation. These deliberately selected stress tests illustrate retrieval failures rather than estimate accuracy across all chess questions.
 
 ## Document corpus
 
@@ -27,13 +41,13 @@ This is the 139-page free-download edition, revised 21 August 2020, containing C
    python -m pip install -r requirements.txt
    ```
 
-4. Set a Gemini API key for answer generation:
+4. Set a Google GenAI API key for answer generation in the same PowerShell terminal:
 
    ```powershell
    $env:GEMINI_API_KEY = "your-key"
    ```
 
-5. Start Jupyter and run every notebook cell in order:
+5. Start Jupyter, open `rag_baseline_vs_reranking.ipynb`, and run its cells in order:
 
    ```powershell
    python -m notebook
@@ -49,8 +63,6 @@ The embedding and Cross-Encoder models are downloaded from Hugging Face on their
 - Re-ranking selects a new Top 3 and uses the identical LLM prompt.
 - Chess-specific stress tests cover exceptions, negation, distractors, and constraints.
 - Rank shifts and latency are presented as tables.
-- A final validation cell requires at least two genuine rank 4-10 to Top 3 promotions.
+- Validation checks confirm candidate consistency and the recorded rank 4-10 to Top 3 evidence promotions.
 
-Retrieval rankings can vary slightly with model and library versions. If the validation cell finds fewer than two qualifying cases, inspect the provided rank tables and refine the closest stress-query wording before submission.
-
-Complete the bracketed prompts in `REPORT.md` in your own words before final submission. The report is currently a draft.
+Retrieval rankings can vary with model and library versions. Re-ranking cannot recover a relevant passage missing from the initial Top 10. Improved retrieval also does not guarantee that every generated sentence is faithful to the source; the saved answer comparisons should be read alongside their cited passages.
