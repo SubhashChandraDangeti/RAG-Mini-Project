@@ -1,0 +1,23 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+.aws/
+*.pem
+*.key
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Download the corpus from the official source linked in README.md
+US_Chess_RuleBook.pdf
+
+# Local assignment materials and duplicate artifacts
+RAG_LMA_Assignment_v1.pdf
+REPORT_TEMPLATE.md
+rag_executed.ipynb
+tmp/
